@@ -1,4 +1,4 @@
-arrow :: Double -> Double -> Double
+arrow :: Integer -> Integer -> Integer
 arrow k n = if n == 1
-  then k 
-  else k ** arrow k (n - 1)
+  then k
+  else k ^ arrow k (n - 1)
