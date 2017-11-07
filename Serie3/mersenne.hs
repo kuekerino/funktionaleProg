@@ -1,5 +1,4 @@
 mersenne :: Int -> [Int]
-mersenne 0 = [0]
-mersenne n = (x:xs)
-  where x =
-    and xs = 2^(n-1)
+mersenne n
+    | n == 0 = [0]
+    | otherwise =  mersenne (n-1) ++ [(2^n) -1 ]
