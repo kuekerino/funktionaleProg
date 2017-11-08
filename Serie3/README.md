@@ -1,16 +1,16 @@
 So hier dann jetzt was schon alles fertig ist.
 
-#arrow
+# arrow
 Solte so stimmen, hab ich nen bisschen getestet und auskommentiert
 
-#binomial
+# binomial
 kompiliert, aber kein einziges Mal getestet
 
-#chars2words
+# chars2words
 funktioniert und macht das was es soll in allen Fällen, auskommentiert
 
-#mersenne
+# mersenne
 funktioniert und macht was es soll, auskommentiert
 
-#twoComplement
+# twoComplement
 keine Ahnung wie man nur eins addiert in bit Form, Knoten im Kopf, flippt bis jetzt nur bits.
