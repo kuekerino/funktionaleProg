@@ -1,0 +1,1 @@
+allFriendsSmaller :: Int -> [(Int,Int)]
