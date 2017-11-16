@@ -1,9 +1,10 @@
 # Aufgabe 1
 ## a)
-- [x] geschrieben und getestet
+- [x] geschrieben
+- [x] getestet
 ## b)
-- [ ] geschrieben
-- [ ] getestet
+- [x] geschrieben
+- [x] getestet
 ## c)
 - [ ] geschrieben
 - [ ] getestet
