@@ -29,8 +29,8 @@
 
 # Aufgabe 5
 
-- [ ] geschrieben
-- [ ] getestet
+- [x] geschrieben
+- [x] getestet
 
 # Aufgabe 6
 
