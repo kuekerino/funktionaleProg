@@ -6,8 +6,8 @@
 - [x] geschrieben
 - [x] getestet
 ## c)
-- [ ] geschrieben
-- [ ] getestet
+- [x] geschrieben
+- [x] getestet
 
 # Aufgabe 2
 
