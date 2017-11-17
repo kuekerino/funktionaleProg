@@ -1,5 +1,11 @@
+{-Wir erstellen uns eine Liste aller Zahlentripel mit Zahlen, die in Frage
+kommen. Danach sortieren wir die Tripel aus, die einer der
+Bedingungen widersprechen.
+-}
 pythTripelsSmaller :: Int -> [(Int, Int, Int)]
-pythTripelsSmaller n = aussortieren n [(x,y,z) | x <- [1..n], y <- [1..n], z <- [1..n]]
+pythTripelsSmaller n = aussortieren n [(x,y,z) | x <- [1..n],
+                                                 y <- [1..n],
+                                                 z <- [1..n]]
 
 aussortieren :: Int -> [(Int,Int,Int)] -> [(Int,Int,Int)]
 aussortieren _ [] = []
