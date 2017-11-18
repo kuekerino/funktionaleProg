@@ -14,9 +14,9 @@
 
 # Aufgabe 2
 
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 
 # Aufgabe 3
 ## a)
@@ -30,9 +30,9 @@
 
 # Aufgabe 4
 
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 
 # Aufgabe 5
 
@@ -42,6 +42,6 @@
 
 # Aufgabe 6
 
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
