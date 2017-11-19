@@ -25,3 +25,10 @@ second (_, y, _) = y
 
 third :: (a, b, c) -> c
 third (_, _, z) = z
+
+
+{-
+pythTriplesSmaller :: Int -> [(Int,Int,Int)]
+pythTriplesSmaller n = [(a,b,c) | a <- [1..n-1], b <- [1..n-1], c <- [1..n-1], a<b, 
+ b<c, (c^2) == (a^2)+(b^2)]
+-}
