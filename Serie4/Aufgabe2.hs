@@ -30,3 +30,12 @@ removelast :: [Int] -> [Int]
 removelast (x:xs)
     | xs == [] = []
     | otherwise = [x] ++ removelast xs
+
+{-
+friends :: (Int, Int) -> Bool
+friends (m, n) | sum (init(divisors m)) == n && sum (init(divisors n)) == m = True
+               | otherwise = False
+
+allFriendsSmaller :: Int -> [(Int,Int)]
+allFriendsSmaller n = [(x, y) | x <- [1..n], y <- [1..n], friends (x,y), x<y]
+-}
