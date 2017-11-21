@@ -1,5 +1,5 @@
-{-Durch List Comprehension und der primzahlen Funtion werden die gewünschten
-Tupel erstellt. Durch die ganzen Guards werden gleichzeitig alle Fälle
+{-Durch List Comprehension und der primzahlen Funtion werden die gewuenschten
+Tupel erstellt. Durch die ganzen Guards werden gleichzeitig alle Faelle
 abgefangen, die wir nicht brauchen.
 -}
 weakGoldbachTriples :: Int -> [(Int,Int,Int)]
@@ -14,7 +14,7 @@ weakGoldbachTriples n = [(x,y,z) | x <- takeWhile (<n) primzahlen,
 {-Zusammensetzung mehrerer Funktionen, wir haben versucht die einzelnen
 Funktionen in die einzelnen Zeilen aufzuteilen um das Lesen zu erleichtern.
 In der letzten Zeile wird per Map die oben geschriebene Funktion auf eine Liste
-angewendet, die alle ungeraden Zahlen enthält. Danach wird hiervon nur das erste
+angewendet, die alle ungeraden Zahlen enthaelt. Danach wird hiervon nur das erste
 Element genommen, dies passiert aus Tempogründen. Da Haskell lazy evaluiert
 wird hier auch abgebrochen, sobald eine mögliche Zerlegung gefunden wurde.
 Danach werden die ersten (n-5)/2 Zahlen angeguckt und geguckt, ob die

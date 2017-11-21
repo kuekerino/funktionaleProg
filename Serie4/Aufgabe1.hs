@@ -17,7 +17,7 @@ trueDivisors = zip x y
           z = map divisors [1..]
 
 {-Wir erstellen uns per trueDivisors eine Liste, die uns das gewünschte liefert,
-danach haben wir eine Liste, deren Einträge entweder Primzahlen oder die Zahl
+danach haben wir eine Liste, deren Eintraege entweder Primzahlen oder die Zahl
 Null ist. Mit auswahl sortieren wir dann die Nullen aus.
 -}
 primes :: [Int]
