@@ -10,7 +10,7 @@
 ## a)
 - [ ] analysieren
 ## b)
-- [ ] geschrieben
+- [x] geschrieben
 - [ ] getestet
 - [ ] kommentiert
 
