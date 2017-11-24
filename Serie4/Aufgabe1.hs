@@ -45,3 +45,14 @@ auswahl :: (Int,[Int]) -> Int
 auswahl (x,y) = if length y == 1
     then x
     else 0
+
+{-
+divisors :: Int -> [Int]
+divisors n = [x | x <- [1..n], rem n x == 0]
+
+trueDivisors :: [(Int,[Int])]
+trueDivisors = [(x, init y) | x <- [1..], y <- [divisors x]]
+
+primes :: [Int]
+primes = [x | x <- [1..], (x, [1]) `elem` take x trueDivisors]
+-}
