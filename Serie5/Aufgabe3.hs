@@ -1,6 +1,11 @@
-potList :: Int -> Int -> [Int]
-potList x y = unique $ [a^b | a <- [2..x],
-                     b <- [2..y]]
+pairsPot :: Integer -> Integer -> [Integer]
+pairsPot a b = cutList (sort(makeList a b))
 
-unique :: [Int] -> [Int]
-unique xs = [x | (x,y) <- zip xs [0..], x `notElem` (take y xs)]
+makeList :: Integer -> Integer -> [Integer]
+makeList a b = [x^y | x <- [2..a], y <- [2..b]]
+
+cutList :: [Integer] -> [Integer]
+cutList [] = []
+cutList [a] = [a]
+cutList (x:xs) | x == head xs = x : cutList(tail(xs))
+             | otherwise = x : cutList(xs)
