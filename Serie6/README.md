@@ -24,9 +24,9 @@
 - [ ] kommentiert
 
 # Aufgabe 4
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 
 # Aufgabe 5
 ## a)
