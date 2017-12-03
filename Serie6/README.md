@@ -11,17 +11,17 @@
 
 # Aufgabe 3
 ## a)
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 ## b)
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 ## c)
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 
 # Aufgabe 4
 - [x] geschrieben
