@@ -4,8 +4,6 @@ data Root3Num = Root3Num Int Int
 instance Eq Root3Num where
     a == b = rationalTeil a == rationalTeil b &&
              erweiterungTeil a == erweiterungTeil b
-    a /= b = rationalTeil a /= rationalTeil b ||
-             erweiterungTeil a /= erweiterungTeil b
 
 {-Hilfunktionen, mit deren Hilfe wir uns die einzelnen Teile holen koennen.-}
 rationalTeil :: Root3Num -> Int

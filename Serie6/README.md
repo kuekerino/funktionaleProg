@@ -30,10 +30,10 @@
 
 # Aufgabe 5
 ## a)
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 ## b)
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
