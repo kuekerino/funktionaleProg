@@ -1,7 +1,7 @@
 # Aufgabe 1
 
 ## a)
-- [ ] geschrieben
+- [x] geschrieben
 - [ ] getestet
 - [ ] kommentiert
 ## b)
@@ -9,7 +9,7 @@
 - [ ] getestet
 - [ ] kommentiert
 ## c)
-- [ ] geschrieben
+- [x] geschrieben
 - [ ] getestet
 - [ ] kommentiert
 

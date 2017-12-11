@@ -1,0 +1,122 @@
+data ZInt = Z Nat Nat
+data Nat = Zero | S Nat deriving Show
+data B = T | F deriving Show
+-- wobei Z Zero b eine positive Zahl b entspricht, und Z a Zero die negative Zahl
+-- -a ist. Im allgemeinen ist Z a b gleich b-a.
+
+first :: ZInt -> Nat
+first (Z a _) = a
+
+second :: ZInt -> Nat
+second (Z _ b) = b
+
+-- Programmieren Sie folgende Funktionen für den algebraischen Datentyp ZInt aus der
+-- Vorlesung.
+maxZ :: ZInt -> ZInt -> ZInt -- berechnet die größte Zahl
+maxZ a b
+    | first a == Zero && second b == Zero = a
+    | second a == Zero && first b == Zero = b
+    | first a == Zero && first b == Zero && minN (second a) (second b) == second a = b
+    | first a == Zero && first b == Zero && minN (second a) (second b) == second b = a
+    | second a == Zero && second b == Zero && minN (first a) (first b) == first a = a
+    | second a == Zero && second b == Zero && minN (first a) (first b) == first b = b
+
+absZ :: ZInt -> ZInt -- absoluter Wert einer Zahl
+absZ a
+    | first a == Zero = a
+    | otherwise = (Z Zero (first a))
+
+isTeilerZ :: ZInt -> ZInt -> B -- überprüft, ob die zweite Zahl Teiler der ersten Zahl ist.
+isTeilerZ a b
+    | first a == Zero && first b == Zero = isTeiler (second a) (second b)
+    | first a == Zero && second b == Zero = isTeiler (second a) (first b)
+    | second a == Zero && first b == Zero = isTeiler (first a) (second b)
+    | second a == Zero && second b == Zero = isTeiler (first a) (first b)
+
+
+ggtZ :: ZInt -> ZInt -> ZInt -- größter gemeinsamer Teiler
+ggtZ a b
+    | first a == Zero && first b == Zero = (Z Zero (ggtN (second a) (second b)))
+    | first a == Zero && second b == Zero = (Z Zero (ggtN (second a) (first b)))
+    | second a == Zero && first b == Zero = (Z Zero (ggtN (first a) (second b)))
+    | second a == Zero && second b == Zero = (Z Zero (ggtN (first a) (first b)))
+
+
+-- b) (2 P.) Definieren Sie die Hilfsfunktionen zint2Int und int2ZInt, die das Testen der
+-- Funktionen für ZInt vereinfachen sollten. Ausnahmsweise ist hierfür erlaubt vordefinierte
+-- Haskell Funktionen zu verwenden.
+-- Anwendungsbeispiel:
+--  zint2Int (Z (S (S (S Zero))) Zero) => -3
+--  int2ZInt (-5) => Z 5 0 — mit eigener Instanz/show-Funktion von Nat in Show
+--  int2ZInt (-5) => Z (S (S (S (S (S Zero))))) Zero — mit “deriving Show” in Nat
+
+-- c) (1 P.) Deklarieren Sie Ihren ZInt Typ als Instanz der Show Klasse, indem Sie eine eigene
+-- show Funktion dafür definieren.
+
+instance Show ZInt where
+    show x = "Z " ++ show (first x) ++ " " ++
+             show (second x)
+
+minN :: Nat -> Nat -> Nat -- Minimum Nat
+minN a Zero = Zero
+minN Zero b = Zero
+minN a b
+    | S Zero == a = a
+    | S Zero == b = b
+    | otherwise =  minhelper a b Zero
+
+minhelper :: Nat -> Nat -> Nat -> Nat
+minhelper a b s
+    |  s == a = a
+    |  s == b = b
+    | otherwise = minhelper a b (S s)
+
+
+instance Eq Nat where
+    (==) (S x) (S y) = x == y
+    (==) Zero Zero = True
+    (==) _ _ = False
+
+
+isTeiler :: Nat -> Nat -> B -- überprüft, ob die zweite Zahl die erste Zahl teilt
+isTeiler a b
+    | a == b = T
+    | b == Zero = F
+    | minN a b == b = isTeilerhelper a b (addN b b)
+    | otherwise = F
+
+isTeilerhelper :: Nat -> Nat -> Nat -> B
+isTeilerhelper a b c
+    | a == c = T
+    | minN a c == c = isTeilerhelper a b (addN b c)
+    | otherwise = F
+
+{-Wir testen nach und nach die Zahlen, teilt bereits eine Zahl die andere
+sind wir fertig. Ansonsten gehen wir von der kleineren der beiden Zahlen so
+lange runter bis wir bei "1" ankommen. "1" ist immer der kleinste ggt.-}
+ggtN :: Nat -> Nat -> Nat
+ggtN a b
+    | a == Zero && b == Zero = Zero
+    | b == Zero = a
+    | a == Zero = b
+    | isTeiler a b == T = b
+    | isTeiler b a == T = a
+    | minN a b == a = ggtNhelper b a a
+    | otherwise = ggtNhelper a b b
+
+{-kleinerer Wert ist zweiter Wert.-}
+ggtNhelper :: Nat -> Nat -> Nat -> Nat
+ggtNhelper a b (S c)
+    | isTeiler a c == T && isTeiler b c == T = c
+    | otherwise = ggtNhelper a b c
+
+
+instance Eq B where
+   (==) (T) (T) = True
+   (==) (F) (F) = True
+   (==) _ _     = False
+
+addN :: Nat -> Nat -> Nat -- endrekursive Funktionsdefinition fuer die Summe
+addN a Zero  = a
+addN Zero b  = b
+addN a (S b) = S (addN a b)
