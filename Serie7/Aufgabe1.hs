@@ -4,14 +4,16 @@ data B = T | F deriving Show
 -- wobei Z Zero b eine positive Zahl b entspricht, und Z a Zero die negative Zahl
 -- -a ist. Im allgemeinen ist Z a b gleich b-a.
 
+{-Um auf die beiden einzelnen Teile zuzugreifen.-}
 first :: ZInt -> Nat
 first (Z a _) = a
 
 second :: ZInt -> Nat
 second (Z _ b) = b
 
--- Programmieren Sie folgende Funktionen für den algebraischen Datentyp ZInt aus der
--- Vorlesung.
+{-Ueber Fallunterscheidung werden erstmal alle Faelle abgefangen die einfach
+sind, zB wenn eine Zahl negativ und die andere positiv ist. Danach wird
+auf die schon bekannten Funktionen zurueck gegriffen.-}
 maxZ :: ZInt -> ZInt -> ZInt -- berechnet die größte Zahl
 maxZ a b
     | first a == Zero && second b == Zero = a
@@ -21,11 +23,14 @@ maxZ a b
     | second a == Zero && second b == Zero && minN (first a) (first b) == first a = a
     | second a == Zero && second b == Zero && minN (first a) (first b) == first b = b
 
+{-Wenn die Zahl positiv ist mache nichts, ansonsten drehe sie nur um.-}
 absZ :: ZInt -> ZInt -- absoluter Wert einer Zahl
 absZ a
     | first a == Zero = a
     | otherwise = (Z Zero (first a))
 
+{-Gucken welches die Zahl ist und nicht das Vorzeichen, danach Vergleich mit
+bekannten Verfahren.-}
 isTeilerZ :: ZInt -> ZInt -> B -- überprüft, ob die zweite Zahl Teiler der ersten Zahl ist.
 isTeilerZ a b
     | first a == Zero && first b == Zero = isTeiler (second a) (second b)
@@ -33,25 +38,12 @@ isTeilerZ a b
     | second a == Zero && first b == Zero = isTeiler (first a) (second b)
     | second a == Zero && second b == Zero = isTeiler (first a) (first b)
 
-
 ggtZ :: ZInt -> ZInt -> ZInt -- größter gemeinsamer Teiler
 ggtZ a b
     | first a == Zero && first b == Zero = (Z Zero (ggtN (second a) (second b)))
     | first a == Zero && second b == Zero = (Z Zero (ggtN (second a) (first b)))
     | second a == Zero && first b == Zero = (Z Zero (ggtN (first a) (second b)))
     | second a == Zero && second b == Zero = (Z Zero (ggtN (first a) (first b)))
-
-
--- b) (2 P.) Definieren Sie die Hilfsfunktionen zint2Int und int2ZInt, die das Testen der
--- Funktionen für ZInt vereinfachen sollten. Ausnahmsweise ist hierfür erlaubt vordefinierte
--- Haskell Funktionen zu verwenden.
--- Anwendungsbeispiel:
---  zint2Int (Z (S (S (S Zero))) Zero) => -3
---  int2ZInt (-5) => Z 5 0 — mit eigener Instanz/show-Funktion von Nat in Show
---  int2ZInt (-5) => Z (S (S (S (S (S Zero))))) Zero — mit “deriving Show” in Nat
-
--- c) (1 P.) Deklarieren Sie Ihren ZInt Typ als Instanz der Show Klasse, indem Sie eine eigene
--- show Funktion dafür definieren.
 
 instance Show ZInt where
     show x = "Z " ++ show (first x) ++ " " ++
@@ -71,12 +63,10 @@ minhelper a b s
     |  s == b = b
     | otherwise = minhelper a b (S s)
 
-
 instance Eq Nat where
     (==) (S x) (S y) = x == y
     (==) Zero Zero = True
     (==) _ _ = False
-
 
 isTeiler :: Nat -> Nat -> B -- überprüft, ob die zweite Zahl die erste Zahl teilt
 isTeiler a b
@@ -109,7 +99,6 @@ ggtNhelper :: Nat -> Nat -> Nat -> Nat
 ggtNhelper a b (S c)
     | isTeiler a c == T && isTeiler b c == T = c
     | otherwise = ggtNhelper a b c
-
 
 instance Eq B where
    (==) (T) (T) = True

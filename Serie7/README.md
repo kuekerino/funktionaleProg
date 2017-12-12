@@ -3,7 +3,7 @@
 ## a)
 - [x] geschrieben
 - [ ] getestet
-- [ ] kommentiert
+- [x] kommentiert
 ## b)
 - [ ] geschrieben
 - [ ] getestet
@@ -11,17 +11,17 @@
 ## c)
 - [x] geschrieben
 - [ ] getestet
-- [ ] kommentiert
+- [x] kommentiert
 
 
 # Aufgabe 2
-- [ ] geschrieben
-- [ ] getestet
-- [ ] kommentiert
+- [x] geschrieben
+- [x] getestet
+- [x] kommentiert
 - [ ] Analyse der Komplexität
 
 # Aufgabe 3
 
 - [x] geschrieben
 - [ ] getestet
-- [ ] kommentiert
+- [x] kommentiert
