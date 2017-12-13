@@ -15,13 +15,10 @@ second (Z _ b) = b
 sind, zB wenn eine Zahl negativ und die andere positiv ist. Danach wird
 auf die schon bekannten Funktionen zurueck gegriffen.-}
 maxZ :: ZInt -> ZInt -> ZInt -- berechnet die größte Zahl
-maxZ a b
-    | first a == Zero && second b == Zero = a
-    | second a == Zero && first b == Zero = b
-    | first a == Zero && first b == Zero && minN (second a) (second b) == second a = b
-    | first a == Zero && first b == Zero && minN (second a) (second b) == second b = a
-    | second a == Zero && second b == Zero && minN (first a) (first b) == first a = a
-    | second a == Zero && second b == Zero && minN (first a) (first b) == first b = b
+maxZ (Z Zero a) (Z _ Zero) = (Z Zero a)
+maxZ (Z _ Zero) (Z Zero b) = (Z Zero b)
+maxZ (Z Zero a) (Z Zero b) = (Z Zero (maxN a b))
+maxZ (Z a Zero) (Z b Zero) = (Z (minN a b) Zero)
 
 {-Wenn die Zahl positiv ist mache nichts, ansonsten drehe sie nur um.-}
 absZ :: ZInt -> ZInt -- absoluter Wert einer Zahl
@@ -109,3 +106,15 @@ addN :: Nat -> Nat -> Nat -- endrekursive Funktionsdefinition fuer die Summe
 addN a Zero  = a
 addN Zero b  = b
 addN a (S b) = S (addN a b)
+
+maxN :: Nat -> Nat -> Nat
+maxN a b = iff (ltN a b) b a
+
+iff :: B -> a -> a -> a
+iff T a _ = a
+iff F _ b = b
+
+ltN :: Nat -> Nat -> B
+ltN Zero (S _)  = T
+ltN (S a) (S b) = ltN a b
+ltN   _    _    = F
